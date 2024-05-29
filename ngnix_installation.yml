@@ -1,0 +1,57 @@
+---
+
+- name: Harden SSH Configuration and Install Ngnix
+
+  hosts: spot_vms
+
+  become: yes
+
+  tasks:
+
+#    - name: update package repo
+
+#      yum:
+#        update_cashe: yes
+
+    - name: Install Ngnix
+
+      yum:
+
+        name: nginx
+
+        state: present
+
+    - name: Start Ngnix
+
+      service:
+
+        name: nginx
+
+        state: started
+
+#      tags:
+#        - nginx
+#        - webserver
+
+    - name: Enable Ngnix to start at boot
+
+      service:
+
+        name: nginx
+
+        state: started
+
+#      tags:
+#        - nginx
+#       - webserver
+
+  handlers:
+
+    - name: restart ssh
+
+      service:
+
+        name: ssh
+
+        state: restarted
+

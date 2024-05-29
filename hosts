@@ -1,0 +1,64 @@
+# This is the default ansible 'hosts' file.
+#
+# It should live in /etc/ansible/hosts
+#
+#   - Comments begin with the '#' character
+#   - Blank lines are ignored
+#   - Groups of hosts are delimited by [header] elements
+#   - You can enter hostnames or ip addresses
+#   - A hostname/ip can be a member of multiple groups
+
+# Ex 1: Ungrouped hosts, specify before any group headers.
+
+## green.example.com
+## blue.example.com
+## 192.168.100.1
+## 192.168.100.10
+
+# Ex 2: A collection of hosts belonging to the 'webservers' group
+
+## [webservers]
+## alpha.example.org
+## beta.example.org
+## 192.168.1.100
+## 192.168.1.110
+
+# If you have multiple hosts following a pattern you can specify
+# them like this:
+
+## www[001:006].example.com
+
+# Ex 3: A collection of database servers in the 'dbservers' group
+
+## [dbservers]
+## 
+## db01.intranet.mydomain.net
+## db02.intranet.mydomain.net
+## 10.25.1.56
+## 10.25.1.57
+
+# Here's another example of host ranges, this time there are no
+# leading 0s:
+
+## db-[99:101]-node.example.com
+
+[spot_vms] 
+13.201.45.218
+13.234.238.184
+13.201.47.58
+43.205.130.73
+13.233.23.122
+3.108.41.39
+3.109.49.10
+13.201.118.47
+65.2.144.111
+13.233.237.119
+35.154.55.208
+52.66.16.192
+13.232.89.204
+35.154.91.33
+3.109.217.173
+
+[spot_vms:vars]
+ansible_user=centos
+ansible_ssh_private_key_file=/home/centos/.ssh/id_rsa
